@@ -1,0 +1,46 @@
+name: Preview
+
+on:
+  push:
+    branches:
+      - main222
+  pull_request:
+    branches:
+      - main2222
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, 'ci skip')"
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: setup node
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: ${{ matrix.node-version }}
+          registry-url: https://registry.npmjs.org
+
+      - name: build
+        if: github.event_name == 'pull_request'
+        run: |
+          npm i
+          npm run build
+
+      - name: push deploy
+        uses: amondnet/vercel-action@v20
+        id: vercel-action-push
+        if: github.event_name == 'push'
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          working-directory: ./
+          vercel-args: --prod
