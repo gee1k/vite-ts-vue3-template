@@ -20,4 +20,14 @@ export default defineConfig({
       '@': join(__dirname, './src'),
     },
   },
+  css: {
+    preprocessorOptions: {
+      less: {
+        modifyVars: {},
+        javascriptEnabled: true,
+        charset: false,
+        additionalData: '@import "./src/styles/global.less";',
+      },
+    },
+  },
 })
