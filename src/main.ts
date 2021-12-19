@@ -4,7 +4,6 @@ import router from '@/router'
 import store from '@/store'
 
 import plugins from '@/plugins'
-import 'virtual:svg-icons-register'
 import components from '@/components'
 
 import '@/styles/index.less'
