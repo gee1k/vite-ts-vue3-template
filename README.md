@@ -14,3 +14,4 @@ Since TypeScript cannot handle type information for `.vue` imports, they are shi
 
 * [安装 Ant-design-vue](https://github.com/gee1k/vite-ts-vue3-template/wiki/安装-ant-design-vue)
 * [配置 ESLint、Prettier](https://github.com/gee1k/vite-ts-vue3-template/wiki/配置-ESLint、Prettier)
+* [Vite 结合 postcss-plugin-px2rem 实现自适应](https://github.com/gee1k/vite-ts-vue3-template/wiki/Vite-结合-postcss-plugin-px2rem-实现自适应)
