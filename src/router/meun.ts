@@ -21,16 +21,16 @@ export function getMenus() {
         return
       }
 
+      const key = route.name as string
+      if (!key) {
+        throw new Error('route name is required')
+      }
+
       if (route.children) {
-        const item = getItem(
-          route.meta?.title as string,
-          route.path || '/',
-          route.meta?.icon,
-          menuFilter(route),
-        )
+        const item = getItem(route.meta?.title as string, key, route.meta?.icon, menuFilter(route))
         menus.push(item)
       } else {
-        const item = getItem(route.meta?.title as string, route.path || '/', route.meta?.icon)
+        const item = getItem(route.meta?.title as string, key, route.meta?.icon)
         menus.push(item)
       }
     })

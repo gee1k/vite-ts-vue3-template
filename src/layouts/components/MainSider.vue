@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { ref } from 'vue'
 import { LayoutSider, Menu } from 'ant-design-vue'
 import type { MenuProps } from 'ant-design-vue'
 import { useAppStore } from '../../store/stores/app'
 import { getMenus } from '@/router/meun'
-import { useRoute, useRouter } from 'vue-router'
+import { RouteLocationNormalized, useRouter } from 'vue-router'
 
 const store = useAppStore()
 const menus = getMenus()
@@ -13,29 +13,18 @@ const selectedKeys = ref<string[]>([])
 const openKeys = ref<string[]>([])
 
 const router = useRouter()
-const route = useRoute()
 
-watch(
-  () => route.fullPath,
-  async (fullPath) => {
-    const paths = fullPath.split('/').filter(Boolean)
-    selectedKeys.value = paths.length ? paths : ['/']
-    openKeys.value = paths.length > 1 ? paths.slice(0, paths.length - 1) : []
-  },
-  {
-    immediate: true,
-  },
-)
+const selectedKeysByRoute = (to: RouteLocationNormalized) => {
+  const matchedRoutes = to.matched.map((route) => route.name).filter(Boolean)
+  selectedKeys.value = [matchedRoutes[matchedRoutes.length - 1] as string]
+  openKeys.value = matchedRoutes.slice(0, matchedRoutes.length - 1) as string[]
+}
+
+selectedKeysByRoute(router.currentRoute.value)
+router.afterEach(selectedKeysByRoute)
 
 const handleClick: MenuProps['onClick'] = (e) => {
-  if (!e.keyPath) {
-    return
-  }
-  let path = e.keyPath.join('/')
-  if (!path.startsWith('/')) {
-    path = '/' + path
-  }
-  router.push(path)
+  router.push({ name: e.key as string })
 }
 </script>
 <template>

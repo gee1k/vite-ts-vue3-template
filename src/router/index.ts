@@ -18,16 +18,24 @@ export const routes: RouteRecordRaw[] = [
         component: () => import('@/views/error-page/404.vue'),
       },
       {
+        path: 'analysis',
+        name: 'Analysis',
+        meta: {
+          title: '分析',
+          icon: () => h(HomeOutlined),
+        },
+        component: () => import('@/views/error-page/404.vue'),
+      },
+      {
         path: 'data-management',
         name: 'DataManagement',
         meta: {
           title: '数据管理',
           icon: () => h(DatabaseOutlined),
         },
-        redirect: '/data-management/battery-sm',
         children: [
           {
-            path: 'battery-sm',
+            path: '',
             name: 'BatterySM',
             meta: {
               title: '三免电池管理',
