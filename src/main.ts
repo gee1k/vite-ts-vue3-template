@@ -1,13 +1,15 @@
 import { createApp } from 'vue'
-import './style.css'
+import './styles/index.less'
 import App from './App.vue'
-import { router } from './router'
-import { store } from './store'
+import { setupRouter } from './router'
+import { setupStore } from './store'
+import { setupI18n } from './locales/setupI18n'
 
 const bootstrap = async () => {
   const app = createApp(App)
-  app.use(router)
-  app.use(store)
+  setupRouter(app)
+  setupStore(app)
+  setupI18n(app)
   app.mount('#app')
 }
 

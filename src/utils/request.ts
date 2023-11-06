@@ -40,12 +40,12 @@ const request = <ResponseType = unknown>(
   options?: AxiosRequestConfig<unknown>,
 ): Promise<ResponseType> => {
   return new Promise((resolve, reject) => {
-    axiosInstance({
+    axiosInstance<BaseResponse<ResponseType>>({
       url,
       ...options,
     })
       .then((res) => {
-        const data = res.data as BaseResponse<ResponseType>
+        const data = res.data
         if (data?.code === 0) {
           resolve(data.data)
         } else {

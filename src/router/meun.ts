@@ -1,7 +1,7 @@
-import { RouteRecordRaw } from 'vue-router'
 import { routes } from '.'
 import type { ItemType } from 'ant-design-vue'
 import { VueElement } from 'vue'
+import type { RouteRecordRaw } from 'vue-router'
 
 export function getMenuRoute() {
   return routes.find((item) => item.path === '/')

@@ -1,6 +1,7 @@
-import { RouteRecordRaw, createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
+import type { RouteRecordRaw } from 'vue-router'
 import MainLayout from '@/layouts/MainLayout.vue'
-import { h } from 'vue'
+import { App, h } from 'vue'
 import { HomeOutlined, DatabaseOutlined } from '@ant-design/icons-vue'
 
 export const routes: RouteRecordRaw[] = [
@@ -48,6 +49,11 @@ export const routes: RouteRecordRaw[] = [
     ],
   },
   {
+    path: '/login',
+    name: 'Login',
+    component: () => import('@/views/login/LoginIndex.vue'),
+  },
+  {
     path: '/404',
     name: '404',
     component: () => import('@/views/error-page/404.vue'),
@@ -62,3 +68,7 @@ export const router = createRouter({
   history: createWebHashHistory(),
   routes,
 })
+
+export function setupRouter(app: App) {
+  app.use(router)
+}

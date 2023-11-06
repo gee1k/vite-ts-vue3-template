@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useAppStore } from '../../store/stores/app'
+import { useAppStore } from '@/store/modules/app'
 import { storeToRefs } from 'pinia'
 import { LayoutHeader } from 'ant-design-vue'
 import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons-vue'

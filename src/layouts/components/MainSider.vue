@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import { LayoutSider, Menu } from 'ant-design-vue'
 import type { MenuProps } from 'ant-design-vue'
-import { useAppStore } from '../../store/stores/app'
+import { useAppStore } from '@/store/modules/app'
 import { getMenus } from '@/router/meun'
 import { RouteLocationNormalized, useRouter } from 'vue-router'
 

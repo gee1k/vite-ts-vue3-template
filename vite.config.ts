@@ -19,6 +19,15 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
+      '#': path.resolve(__dirname, './types'),
+    },
+  },
+  css: {
+    preprocessorOptions: {
+      less: {
+        javascriptEnabled: true,
+        additionalData: `@import "${path.resolve(__dirname, 'src/styles/variables.less')}";`,
+      },
     },
   },
 })
