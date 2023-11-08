@@ -1,13 +1,10 @@
-import pkg from '../../package.json'
-
 export function getCommonStoragePrefix() {
-  const VITE_APP_TITLE = import.meta.env.VITE_APP_TITLE
-  return `${VITE_APP_TITLE.replace(/\s/g, '_')}__${getEnv()}`.toUpperCase()
+  const { VITE_APP_STORAGE_PREFIX } = getAppEnvConfig()
+  return `${VITE_APP_STORAGE_PREFIX.replace(/\s/g, '_')}__${getEnv()}__`.toUpperCase()
 }
 
-// Generate cache key according to version
-export function getStorageShortName() {
-  return `${getCommonStoragePrefix()}${`__${pkg.version}`}__`.toUpperCase()
+export function getAppEnvConfig() {
+  return import.meta.env
 }
 
 export function getEnv(): string {

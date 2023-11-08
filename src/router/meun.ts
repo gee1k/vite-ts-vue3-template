@@ -1,49 +1,50 @@
-import { routes } from '.'
 import type { ItemType } from 'ant-design-vue'
-import { VueElement } from 'vue'
+import { VNode, VueElement } from 'vue'
 import type { RouteRecordRaw } from 'vue-router'
 
-export function getMenuRoute() {
-  return routes.find((item) => item.path === '/')
-}
-
-export function getMenus() {
-  const rootRoute = getMenuRoute()
-  if (!rootRoute || !rootRoute.children) return []
-
-  const menuFilter = (parentRoute: RouteRecordRaw) => {
-    if (!parentRoute.children) {
-      return []
-    }
+export function formatMenus(routes: RouteRecordRaw[]) {
+  const menuFilter = (routeList: RouteRecordRaw[]) => {
     const menus: ItemType[] = []
-    parentRoute.children.forEach((route) => {
+    routeList.forEach((route) => {
       if (route.meta?.hideInMenu) {
         return
       }
 
-      const key = route.name as string
-      if (!key) {
-        throw new Error('route name is required')
+      let menuRoute = route
+      if (route.children && route.children.length === 1 && !route.meta?.title) {
+        menuRoute = route.children[0]
+        if (menuRoute.meta?.hideInMenu) {
+          return
+        }
       }
 
-      if (route.children) {
-        const item = getItem(route.meta?.title as string, key, route.meta?.icon, menuFilter(route))
+      const key = menuRoute.name as string
+      if (!key) {
+        return
+      }
+
+      if (menuRoute.children) {
+        const item = getItem(
+          menuRoute.meta?.title as string,
+          key,
+          menuRoute.meta?.icon,
+          menuFilter(menuRoute.children),
+        )
         menus.push(item)
       } else {
-        const item = getItem(route.meta?.title as string, key, route.meta?.icon)
+        const item = getItem(menuRoute.meta?.title as string, key, menuRoute.meta?.icon)
         menus.push(item)
       }
     })
     return menus
   }
-  return menuFilter(rootRoute)
+  return menuFilter(routes)
 }
 
 function getItem(
   label: VueElement | string,
   key: string,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  icon?: any,
+  icon?: () => VNode,
   children?: ItemType[],
   type?: 'group',
 ): ItemType {

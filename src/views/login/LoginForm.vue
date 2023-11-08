@@ -2,28 +2,41 @@
 import { reactive, ref } from 'vue'
 import { Form, FormItem, Input, InputPassword, Checkbox, Col, Row, Button } from 'ant-design-vue'
 import { useI18n } from 'vue-i18n'
+import { LoginParams } from '@/api/model/user.model'
+import { useUserStore } from '@/store/modules/user'
+import { useRouter } from 'vue-router'
 const { t } = useI18n()
+
+const router = useRouter()
+const userStore = useUserStore()
 
 const formRef = ref()
 const loading = ref(false)
 const rememberMe = ref(false)
 
-const formData = reactive({
-  account: 'vben',
+const formData = reactive<LoginParams>({
+  username: 'svend',
   password: '123456',
 })
 
-async function handleLogin() {}
+async function handleLogin(values: LoginParams) {
+  await userStore.login(values)
+  if (router.currentRoute.value.query.redirect) {
+    router.push(router.currentRoute.value.query.redirect as string)
+  } else {
+    router.push('/')
+  }
+}
 </script>
 <template>
   <h2 class="mb-3 text-2xl font-bold text-center xl:text-3xl enter-x xl:text-left">
     {{ t('sys.login.signInFormTitle') }}
   </h2>
-  <Form class="p-4 enter-x" :model="formData" ref="formRef" @keypress.enter="handleLogin">
-    <FormItem name="account" class="enter-x">
+  <Form class="p-4 enter-x" :model="formData" ref="formRef" @finish="handleLogin">
+    <FormItem name="username" class="enter-x">
       <Input
         size="large"
-        v-model:value="formData.account"
+        v-model:value="formData.username"
         :placeholder="t('sys.login.userName')"
         class="fix-auto-fill"
       />
@@ -57,7 +70,7 @@ async function handleLogin() {}
     </Row>
 
     <FormItem class="enter-x">
-      <Button type="primary" size="large" block @click="handleLogin" :loading="loading">
+      <Button type="primary" html-type="submit" size="large" block :loading="loading">
         {{ t('sys.login.loginButton') }}
       </Button>
       <!-- <Button size="large" class="mt-4 enter-x" block @click="handleRegister">

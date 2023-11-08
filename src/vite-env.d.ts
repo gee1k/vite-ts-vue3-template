@@ -1,8 +1,9 @@
 /// <reference types="vite/client" />
 
 interface ImportMetaEnv {
+  readonly VITE_APP_STORAGE_PREFIX: string
   readonly VITE_APP_TITLE: string
-  // 更多环境变量...
+  readonly VITE_APP_BASE_API: string
 }
 
 interface ImportMeta {

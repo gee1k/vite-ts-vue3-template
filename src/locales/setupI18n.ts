@@ -40,8 +40,6 @@ async function createI18nOptions(): Promise<I18nOptions> {
 export async function setupI18n(app: App) {
   const options = await createI18nOptions()
 
-  console.log('options', options)
-
   i18n = createI18n(options)
   app.use(i18n)
 }

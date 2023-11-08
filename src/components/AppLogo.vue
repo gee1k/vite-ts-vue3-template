@@ -8,6 +8,7 @@
 </template>
 <script lang="ts" setup>
 import { useAppStore } from '@/store/modules/app'
+import { getAppEnvConfig } from '@/utils/env'
 import { computed, unref } from 'vue'
 import { useRouter } from 'vue-router'
 
@@ -22,7 +23,7 @@ const props = defineProps({
   alwaysShowTitle: { type: Boolean },
 })
 
-const title = import.meta.env.VITE_APP_TITLE
+const title = getAppEnvConfig().VITE_APP_TITLE
 
 const appStore = useAppStore()
 const router = useRouter()

@@ -15,7 +15,9 @@
     "@vueuse/core": "^10.5.0",
     "ant-design-vue": "4.x",
     "axios": "^1.6.0",
+    "js-cookie": "^3.0.5",
     "lodash-es": "^4.17.21",
+    "nprogress": "^0.2.0",
     "pinia": "^2.1.7",
     "radash": "^11.0.0",
     "vue": "^3.3.4",
@@ -23,8 +25,10 @@
     "vue-router": "4"
   },
   "devDependencies": {
+    "@types/js-cookie": "^3.0.5",
     "@types/lodash-es": "^4.17.10",
     "@types/node": "^20.8.9",
+    "@types/nprogress": "^0.2.2",
     "@typescript-eslint/eslint-plugin": "^6.9.0",
     "@typescript-eslint/parser": "^6.9.0",
     "@vitejs/plugin-vue": "^4.2.3",

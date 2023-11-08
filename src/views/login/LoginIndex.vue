@@ -3,9 +3,10 @@ import AppLocalePicker from '@/components/AppLocalePicker.vue'
 import AppLogo from '@/components/AppLogo.vue'
 import LoginForm from './LoginForm.vue'
 import { useI18n } from 'vue-i18n'
+import { getAppEnvConfig } from '@/utils/env'
 const { t } = useI18n()
 
-const title = import.meta.env.VITE_APP_TITLE
+const title = getAppEnvConfig().VITE_APP_TITLE
 </script>
 <template>
   <div class="login-container">

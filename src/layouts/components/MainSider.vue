@@ -1,13 +1,17 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { LayoutSider, Menu } from 'ant-design-vue'
 import type { MenuProps } from 'ant-design-vue'
 import { useAppStore } from '@/store/modules/app'
-import { getMenus } from '@/router/meun'
+import { formatMenus } from '@/router/meun'
 import { RouteLocationNormalized, useRouter } from 'vue-router'
+import { usePermissionStore } from '@/store/modules/permission'
 
 const store = useAppStore()
-const menus = getMenus()
+const permissionStore = usePermissionStore()
+const menus = computed(() => {
+  return formatMenus(permissionStore.routes)
+})
 
 const selectedKeys = ref<string[]>([])
 const openKeys = ref<string[]>([])
