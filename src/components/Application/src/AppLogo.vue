@@ -1,14 +1,14 @@
 <template>
   <div class="anticon" :class="getAppLogoClass" @click="goHome">
-    <img src="../assets/images/logo.png" />
+    <img src="../../../assets/images/logo.png" alt="app-logo" />
     <div class="ml-2 truncate md:opacity-100" :class="getTitleClass" v-show="showTitle">
       {{ title }}
     </div>
   </div>
 </template>
 <script lang="ts" setup>
-import { useAppStore } from '@/store/modules/app'
-import { getAppEnvConfig } from '@/utils/env'
+import { useAppStore } from '@/store/modules/app.ts'
+import { getAppEnvConfig } from '@/utils/env.ts'
 import { computed, unref } from 'vue'
 import { useRouter } from 'vue-router'
 

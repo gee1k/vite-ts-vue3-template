@@ -43,7 +43,7 @@ function handleMenuClick(e: MenuInfo) {
         src="../../assets/images/header-user.jpeg"
         alt="user-avatar"
       />
-      <span class="app-header-user-dropdown__info hidden md:block block`">
+      <span class="app-header-user-dropdown__info hidden md:block">
         <span class="app-header-user-dropdown__name truncate">
           {{ getUserInfo?.realName }}
         </span>

@@ -1,3 +1,24 @@
+<script lang="ts" setup>
+import CountButton from './CountButton.vue'
+import { useRuleFormItem } from '@/hooks/useFormItem'
+
+export interface Props {
+  value: string
+  size?: 'default' | 'large' | 'small'
+  count?: number
+  sendCodeApi?: () => Promise<boolean>
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  size: 'default',
+  count: 60,
+})
+
+defineOptions({
+  inheritAttrs: false,
+})
+const [state] = useRuleFormItem(props)
+</script>
 <template>
   <a-input v-bind="$attrs" class="app-countdown-input" :size="size" :value="state">
     <template #addonAfter>
@@ -8,33 +29,6 @@
     </template>
   </a-input>
 </template>
-<script lang="ts">
-import { defineComponent, PropType } from 'vue'
-import CountButton from './CountButton.vue'
-import { useRuleFormItem } from '@/hooks/useFormItem'
-
-const props = {
-  value: { type: String },
-  size: { type: String, validator: (v: string) => ['default', 'large', 'small'].includes(v) },
-  count: { type: Number, default: 60 },
-  sendCodeApi: {
-    type: Function as PropType<() => Promise<boolean>>,
-    default: null,
-  },
-}
-
-export default defineComponent({
-  name: 'CountDownInput',
-  components: { CountButton },
-  inheritAttrs: false,
-  props,
-  setup(props) {
-    const [state] = useRuleFormItem(props)
-
-    return { state }
-  },
-})
-</script>
 <style lang="less">
 .app-countdown-input {
   .ant-input-group-addon {

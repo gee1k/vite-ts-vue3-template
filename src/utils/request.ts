@@ -1,9 +1,9 @@
 import axios, { AxiosRequestConfig } from 'axios'
 
-axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8'
+axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8'
 
 const axiosInstance = axios.create({
-  baseURL: '',
+  baseURL: import.meta.env.VITE_APP_BASE_API,
   timeout: 10000,
 })
 

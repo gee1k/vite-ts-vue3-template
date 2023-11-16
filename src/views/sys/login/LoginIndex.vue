@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import AppLocalePicker from '@/components/AppLocalePicker.vue'
-import AppLogo from '@/components/AppLogo.vue'
+import { AppLocalePicker, AppLogo } from '@/components/Application'
 import LoginForm from './LoginForm.vue'
 import RegisterForm from './RegisterForm.vue'
 import ForgetPasswordForm from './ForgetPasswordForm.vue'
 import { useI18n } from 'vue-i18n'
-import { getAppEnvConfig } from '@/utils/env'
+import { getAppEnvConfig } from '@/utils/env.ts'
 const { t } = useI18n()
 
 const title = getAppEnvConfig().VITE_APP_TITLE
@@ -27,7 +26,7 @@ const title = getAppEnvConfig().VITE_APP_TITLE
           <div class="my-auto">
             <img
               :alt="title"
-              src="../../assets/svg/login-box-bg.svg"
+              src="../../../assets/svg/login-box-bg.svg"
               class="w-1/2 -mt-16 -enter-x"
             />
             <div class="mt-10 font-medium text-white -enter-x">
@@ -61,7 +60,7 @@ const title = getAppEnvConfig().VITE_APP_TITLE
   overflow: hidden;
   padding: 0 1rem;
 
-  @media (max-width: @screen-xl) {
+  @media (max-width: theme('screens.xl')) {
     background-color: #293146;
 
     .login-form {
@@ -82,7 +81,7 @@ const title = getAppEnvConfig().VITE_APP_TITLE
     background-position: 100%;
     background-size: auto 100%;
 
-    @media (max-width: @screen-xl) {
+    @media (max-width: theme('screens.xl')) {
       display: none;
     }
   }

@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
-import { store } from '../index'
+import { store } from '@/store'
 import { localeSetting } from '@/settings/localeSetting'
 import type { LocaleSetting } from '#/config'
 import { createLocalStorage } from '@/utils/cache'

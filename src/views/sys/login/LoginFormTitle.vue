@@ -5,7 +5,7 @@
 </template>
 <script lang="ts" setup>
 import { computed, unref } from 'vue'
-import { LoginStateEnum, useLoginState } from './useLogin'
+import { LoginStateEnum, useLoginState } from './useLogin.ts'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()

@@ -2,8 +2,8 @@
 import { reactive, ref, computed, unref } from 'vue'
 import LoginFormTitle from './LoginFormTitle.vue'
 import { Form, Input, Button } from 'ant-design-vue'
-import { CountdownInput } from '@/components/Countdown/index.ts'
-import { useLoginState, useFormRules, LoginStateEnum } from './useLogin'
+import { CountdownInput } from '@/components/Countdown'
+import { useLoginState, useFormRules, LoginStateEnum } from './useLogin.ts'
 import { useI18n } from 'vue-i18n'
 
 const FormItem = Form.Item

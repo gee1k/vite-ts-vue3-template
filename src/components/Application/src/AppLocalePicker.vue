@@ -19,8 +19,8 @@ import { Dropdown, Menu, MenuItem } from 'ant-design-vue'
 import { LanguageIcon } from '@heroicons/vue/24/solid'
 import type { LocaleType } from '#/config'
 import type { MenuProps } from 'ant-design-vue'
-import { useLocale } from '@/locales/useLocale'
-import { localeList } from '@/settings/localeSetting'
+import { useLocale } from '@/locales/useLocale.ts'
+import { localeList } from '@/settings/localeSetting.ts'
 
 const props = defineProps({
   /**

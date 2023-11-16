@@ -24,7 +24,7 @@ export const constantRoutes: RouteRecordRaw[] = [
     meta: {
       hideInMenu: true,
     },
-    component: () => import('@/views/login/LoginIndex.vue'),
+    component: () => import('@/views/sys/login/LoginIndex.vue'),
   },
   {
     path: '/404',
@@ -32,7 +32,7 @@ export const constantRoutes: RouteRecordRaw[] = [
     meta: {
       hideInMenu: true,
     },
-    component: () => import('@/views/error-page/404.vue'),
+    component: () => import('@/views/sys/error-page/404Page.vue'),
   },
   {
     path: '/:pathMatch(.*)*',
@@ -58,7 +58,7 @@ export const asyncRoutes: RouteRecordRaw[] = [
           title: '首页',
           icon: () => h(HomeIcon, { class: 'w-4 h-4' }),
         },
-        component: () => import('@/views/error-page/404.vue'),
+        component: () => import('@/views/sys/error-page/404Page.vue'),
       },
     ],
   },
@@ -76,7 +76,7 @@ export const asyncRoutes: RouteRecordRaw[] = [
           title: '分析',
           icon: () => h(PresentationChartLineIcon, { class: 'w-4 h-4' }),
         },
-        component: () => import('@/views/error-page/404.vue'),
+        component: () => import('@/views/sys/error-page/404Page.vue'),
       },
     ],
   },

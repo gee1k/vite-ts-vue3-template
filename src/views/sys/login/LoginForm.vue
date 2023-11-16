@@ -13,8 +13,8 @@ import {
 } from 'ant-design-vue'
 import LoginFormTitle from './LoginFormTitle.vue'
 import { useI18n } from 'vue-i18n'
-import { LoginParams } from '@/api/model/user.model'
-import { useUserStore } from '@/store/modules/user'
+import { LoginParams } from '@/api/model/user.model.ts'
+import { useUserStore } from '@/store/modules/user.ts'
 import { useRouter } from 'vue-router'
 import { LoginStateEnum, useFormRules, useLoginState } from './useLogin.ts'
 const { t } = useI18n()
