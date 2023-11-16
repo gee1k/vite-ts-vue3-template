@@ -1,8 +1,11 @@
 {
-  "name": "cxnj-dashboard",
-  "private": true,
+  "name": "vite-ts-vue3-template",
   "version": "0.0.0",
   "type": "module",
+  "description": "vite-ts-vue3-template",
+  "author": "Svend <svend.jin@gmail.com>",
+  "license": "MIT",
+  "packageManager": "pnpm@8.10.5",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
