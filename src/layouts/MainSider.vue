@@ -2,10 +2,10 @@
 import { computed, ref } from 'vue'
 import { LayoutSider, Menu } from 'ant-design-vue'
 import type { MenuProps } from 'ant-design-vue'
-import { useAppStore } from '@/store/modules/app'
-import { formatMenus } from '@/router/meun'
+import { useAppStore } from '@/store/modules/app.ts'
+import { formatMenus } from '@/router/meun.ts'
 import { RouteLocationNormalized, useRouter } from 'vue-router'
-import { usePermissionStore } from '@/store/modules/permission'
+import { usePermissionStore } from '@/store/modules/permission.ts'
 
 const store = useAppStore()
 const permissionStore = usePermissionStore()

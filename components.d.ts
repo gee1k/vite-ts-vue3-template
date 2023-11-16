@@ -9,6 +9,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     ABreadcrumb: typeof import('ant-design-vue/es')['Breadcrumb']
     ABreadcrumbItem: typeof import('ant-design-vue/es')['BreadcrumbItem']
+    AInput: typeof import('ant-design-vue/es')['Input']
     ALayout: typeof import('ant-design-vue/es')['Layout']
     ALayoutContent: typeof import('ant-design-vue/es')['LayoutContent']
     ALayoutFooter: typeof import('ant-design-vue/es')['LayoutFooter']
@@ -18,6 +19,8 @@ declare module 'vue' {
     AMenuItem: typeof import('ant-design-vue/es')['MenuItem']
     AppLocalePicker: typeof import('./src/components/AppLocalePicker.vue')['default']
     AppLogo: typeof import('./src/components/AppLogo.vue')['default']
+    CountButton: typeof import('./src/components/Countdown/src/CountButton.vue')['default']
+    CountdownInput: typeof import('./src/components/Countdown/src/CountdownInput.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

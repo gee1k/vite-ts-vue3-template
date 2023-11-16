@@ -1,4 +1,5 @@
 import 'vue-router'
+import { VNode } from 'vue'
 
 export {}
 

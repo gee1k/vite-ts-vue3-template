@@ -1,8 +1,9 @@
 <script setup lang="ts">
-// import { StyleProvider } from 'ant-design-vue'
+import { App } from 'ant-design-vue'
+import AppProvider from '@/AppProvider.vue'
 </script>
 <template>
-  <div style="height: 100%">
-    <router-view></router-view>
-  </div>
+  <App class="h-full">
+    <AppProvider />
+  </App>
 </template>

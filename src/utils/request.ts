@@ -30,9 +30,12 @@ axiosInstance.interceptors.response.use(
 )
 
 type BaseResponse<T> = {
-  code: number
   data: T
-  msg?: string
+  meta: {
+    error: boolean
+    code?: number
+    message?: string
+  }
 }
 
 const request = <ResponseType = unknown>(
@@ -46,10 +49,10 @@ const request = <ResponseType = unknown>(
     })
       .then((res) => {
         const data = res.data
-        if (data?.code === 0) {
+        if (!data.meta.error) {
           resolve(data.data)
         } else {
-          throw new Error(data.msg || 'Error')
+          throw new Error(data.meta.message || 'Error')
         }
       })
       .catch((err) => {

@@ -9,7 +9,7 @@ const bootstrap = async () => {
   const app = createApp(App)
   setupRouter(app)
   setupStore(app)
-  setupI18n(app)
+  await setupI18n(app)
   app.mount('#app')
 }
 

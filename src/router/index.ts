@@ -2,7 +2,12 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import type { RouteRecordRaw } from 'vue-router'
 import MainLayout from '@/layouts/MainLayout.vue'
 import { App, h } from 'vue'
-import { HomeOutlined, DatabaseOutlined } from '@ant-design/icons-vue'
+import {
+  Battery100Icon,
+  CircleStackIcon,
+  HomeIcon,
+  PresentationChartLineIcon,
+} from '@heroicons/vue/24/solid'
 import { setupRouterGuard } from './guard'
 
 export const constantRoutes: RouteRecordRaw[] = [
@@ -51,7 +56,7 @@ export const asyncRoutes: RouteRecordRaw[] = [
         name: 'Dashboard',
         meta: {
           title: '首页',
-          icon: () => h(HomeOutlined),
+          icon: () => h(HomeIcon, { class: 'w-4 h-4' }),
         },
         component: () => import('@/views/error-page/404.vue'),
       },
@@ -69,7 +74,7 @@ export const asyncRoutes: RouteRecordRaw[] = [
         name: 'Analysis',
         meta: {
           title: '分析',
-          icon: () => h(HomeOutlined),
+          icon: () => h(PresentationChartLineIcon, { class: 'w-4 h-4' }),
         },
         component: () => import('@/views/error-page/404.vue'),
       },
@@ -80,7 +85,7 @@ export const asyncRoutes: RouteRecordRaw[] = [
     name: 'DataManagement',
     meta: {
       title: '数据管理',
-      icon: () => h(DatabaseOutlined),
+      icon: () => h(CircleStackIcon, { class: 'w-4 h-4' }),
       roles: ['admin'],
     },
     component: MainLayout,
@@ -90,7 +95,7 @@ export const asyncRoutes: RouteRecordRaw[] = [
         name: 'BatterySM',
         meta: {
           title: '三免电池管理',
-          icon: () => h(DatabaseOutlined),
+          icon: () => h(Battery100Icon, { class: 'w-4 h-4' }),
         },
         component: () => import('@/views/data-management/battery-sm/BatteryIndex.vue'),
       },
@@ -112,6 +117,7 @@ export function resetRouter() {
       router.hasRoute(name) && router.removeRoute(name)
     }
   })
+  router.replace('/')
 }
 
 export function setupRouter(app: App) {

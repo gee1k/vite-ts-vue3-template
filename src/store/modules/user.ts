@@ -6,6 +6,8 @@ import { login as loginApi, getUserInfo as getUserInfoApi } from '@/api/user'
 import type { LoginParams } from '@/api/model/user.model'
 import { resetRouter } from '@/router'
 import { getTokenCache, removeTokenCache, setTokenCache } from '@/utils/auth'
+import { useGlobalStore } from '@/store/modules/global.ts'
+import { useI18n } from '@/hooks/useI18n.ts'
 
 export const useUserStore = defineStore('app-user', () => {
   const userInfo = ref<Nullable<UserInfo>>(null)
@@ -31,7 +33,8 @@ export const useUserStore = defineStore('app-user', () => {
     const data = await loginApi(params)
     const { token } = data
     setToken(token)
-    return token
+
+    return getUserInfo()
   }
 
   async function getUserInfo() {
@@ -49,6 +52,22 @@ export const useUserStore = defineStore('app-user', () => {
     resetRouter()
   }
 
+  function confirmLoginOut() {
+    const globalStore = useGlobalStore()
+
+    const { t } = useI18n()
+
+    globalStore.modal?.confirm({
+      title: t('sys.app.logoutTip'),
+      content: t('sys.app.logoutMessage'),
+      okText: t('common.okText'),
+      cancelText: t('common.cancelText'),
+      onOk: () => {
+        logout()
+      },
+    })
+  }
+
   return {
     userInfo,
     token,
@@ -59,6 +78,7 @@ export const useUserStore = defineStore('app-user', () => {
     login,
     getUserInfo,
     logout,
+    confirmLoginOut,
   }
 })
 

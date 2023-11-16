@@ -1,11 +1,28 @@
 <script setup lang="ts">
-import { reactive, ref } from 'vue'
-import { Form, FormItem, Input, InputPassword, Checkbox, Col, Row, Button } from 'ant-design-vue'
+import { computed, reactive, ref, unref } from 'vue'
+import {
+  Form,
+  FormItem,
+  Input,
+  InputPassword,
+  Checkbox,
+  Col,
+  Row,
+  Button,
+  notification,
+} from 'ant-design-vue'
+import LoginFormTitle from './LoginFormTitle.vue'
 import { useI18n } from 'vue-i18n'
 import { LoginParams } from '@/api/model/user.model'
 import { useUserStore } from '@/store/modules/user'
 import { useRouter } from 'vue-router'
+import { LoginStateEnum, useFormRules, useLoginState } from './useLogin.ts'
 const { t } = useI18n()
+
+const { setLoginState, getLoginState } = useLoginState()
+const { getFormRules } = useFormRules()
+
+const getShow = computed(() => unref(getLoginState) === LoginStateEnum.LOGIN)
 
 const router = useRouter()
 const userStore = useUserStore()
@@ -15,28 +32,53 @@ const loading = ref(false)
 const rememberMe = ref(false)
 
 const formData = reactive<LoginParams>({
-  username: 'svend',
-  password: '123456',
+  identifier: '15950000512',
+  password: '123456789',
 })
 
 async function handleLogin(values: LoginParams) {
-  await userStore.login(values)
-  if (router.currentRoute.value.query.redirect) {
-    router.push(router.currentRoute.value.query.redirect as string)
-  } else {
-    router.push('/')
+  loading.value = true
+  try {
+    const userInfo = await userStore.login(values)
+    if (userInfo) {
+      notification.success({
+        message: t('sys.login.loginSuccessTitle'),
+        description: `${t('sys.login.loginSuccessDesc')}: ${userInfo.username}`,
+        // description: `${t('sys.login.loginSuccessDesc')}: ${userInfo.realName}`,
+        duration: 3,
+      })
+
+      if (router.currentRoute.value.query.redirect) {
+        await router.push(router.currentRoute.value.query.redirect as string)
+      } else {
+        await router.push('/')
+      }
+    }
+  } catch (error) {
+    notification.error({
+      message: t('sys.login.loginErrorTitle'),
+      description: (error as unknown as Error).message || t('sys.api.networkExceptionMsg'),
+      duration: 3,
+    })
+  } finally {
+    loading.value = false
   }
 }
 </script>
 <template>
-  <h2 class="mb-3 text-2xl font-bold text-center xl:text-3xl enter-x xl:text-left">
-    {{ t('sys.login.signInFormTitle') }}
-  </h2>
-  <Form class="p-4 enter-x" :model="formData" ref="formRef" @finish="handleLogin">
-    <FormItem name="username" class="enter-x">
+  <LoginFormTitle v-show="getShow" class="enter-x" />
+  <Form
+    v-show="getShow"
+    class="p-4 enter-x"
+    :model="formData"
+    :rules="getFormRules"
+    ref="formRef"
+    @finish="handleLogin"
+  >
+    <FormItem name="identifier" class="enter-x">
       <Input
         size="large"
-        v-model:value="formData.username"
+        v-model:value="formData.identifier"
         :placeholder="t('sys.login.userName')"
         class="fix-auto-fill"
       />
@@ -62,7 +104,7 @@ async function handleLogin(values: LoginParams) {
       <Col :span="12">
         <FormItem :style="{ 'text-align': 'right' }">
           <!-- No logic, you need to deal with it yourself -->
-          <Button type="link" size="small">
+          <Button type="link" size="small" @click="setLoginState(LoginStateEnum.RESET_PASSWORD)">
             {{ t('sys.login.forgetPassword') }}
           </Button>
         </FormItem>
@@ -73,9 +115,14 @@ async function handleLogin(values: LoginParams) {
       <Button type="primary" html-type="submit" size="large" block :loading="loading">
         {{ t('sys.login.loginButton') }}
       </Button>
-      <!-- <Button size="large" class="mt-4 enter-x" block @click="handleRegister">
+      <Button
+        size="large"
+        class="mt-4 enter-x"
+        block
+        @click="setLoginState(LoginStateEnum.REGISTER)"
+      >
         {{ t('sys.login.registerButton') }}
-      </Button> -->
+      </Button>
     </FormItem>
   </Form>
 </template>

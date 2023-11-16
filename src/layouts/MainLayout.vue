@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import MainSider from './components/MainSider.vue'
-import MainHeader from './components/MainHeader.vue'
+import MainSider from './MainSider.vue'
+import MainHeader from './MainHeader.vue'
 import { Layout, LayoutContent } from 'ant-design-vue'
 </script>
 <template>

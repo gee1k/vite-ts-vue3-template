@@ -2,6 +2,8 @@
 import AppLocalePicker from '@/components/AppLocalePicker.vue'
 import AppLogo from '@/components/AppLogo.vue'
 import LoginForm from './LoginForm.vue'
+import RegisterForm from './RegisterForm.vue'
+import ForgetPasswordForm from './ForgetPasswordForm.vue'
 import { useI18n } from 'vue-i18n'
 import { getAppEnvConfig } from '@/utils/env'
 const { t } = useI18n()
@@ -41,6 +43,8 @@ const title = getAppEnvConfig().VITE_APP_TITLE
             class="login-form relative w-full px-5 py-8 mx-auto my-auto rounded-md shadow-md xl:ml-16 xl:bg-transparent sm:px-8 xl:p-4 xl:shadow-none sm:w-3/4 lg:w-2/4 xl:w-3/4 enter-x"
           >
             <LoginForm />
+            <RegisterForm />
+            <ForgetPasswordForm />
           </div>
         </div>
       </div>
