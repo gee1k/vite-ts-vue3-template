@@ -33,7 +33,7 @@ export const useUserStore = defineStore('app-user', () => {
     const data = await loginApi(params)
     const { token } = data
     setToken(token, options?.rememberMe)
-    return getUserInfo()
+    return token
   }
 
   async function getUserInfo() {

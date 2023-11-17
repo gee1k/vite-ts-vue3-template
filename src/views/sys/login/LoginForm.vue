@@ -39,11 +39,11 @@ const formData = reactive<LoginParams>({
 async function handleLogin(values: LoginParams) {
   loading.value = true
   try {
-    const userInfo = await userStore.login(values, { rememberMe: unref(rememberMe) })
-    if (userInfo) {
+    const token = await userStore.login(values, { rememberMe: unref(rememberMe) })
+    if (token) {
       notification.success({
         message: t('sys.login.loginSuccessTitle'),
-        description: `${t('sys.login.loginSuccessDesc')}: ${userInfo.username}`,
+        description: `${t('sys.login.loginSuccessDesc')}`,
         duration: 3,
       })
 

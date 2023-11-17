@@ -1,6 +1,8 @@
+import pkg from '../../package.json'
+
 export function getCommonStoragePrefix() {
-  const { VITE_APP_STORAGE_PREFIX } = getAppEnvConfig()
-  return `${VITE_APP_STORAGE_PREFIX.replace(/\s/g, '_')}__${getEnv()}__`.toUpperCase()
+  const storagePrefix = pkg.name || 'dashboard'
+  return `${storagePrefix.replace(/\s/g, '_')}__${getEnv()}__`.toUpperCase()
 }
 
 export function getAppEnvConfig() {
