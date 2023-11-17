@@ -8,9 +8,9 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     AButton: typeof import('ant-design-vue/es')['Button']
-    AInput: typeof import('ant-design-vue/es')['Input']
     AppLocalePicker: typeof import('./src/components/Application/src/AppLocalePicker.vue')['default']
     AppLogo: typeof import('./src/components/Application/src/AppLogo.vue')['default']
+    AppProvider: typeof import('./src/components/Application/src/AppProvider.vue')['default']
     CountButton: typeof import('./src/components/Countdown/src/CountButton.vue')['default']
     CountdownInput: typeof import('./src/components/Countdown/src/CountdownInput.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

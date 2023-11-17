@@ -32,19 +32,18 @@ const loading = ref(false)
 const rememberMe = ref(false)
 
 const formData = reactive<LoginParams>({
-  identifier: '15950000512',
-  password: '123456789',
+  identifier: '',
+  password: '',
 })
 
 async function handleLogin(values: LoginParams) {
   loading.value = true
   try {
-    const userInfo = await userStore.login(values)
+    const userInfo = await userStore.login(values, { rememberMe: unref(rememberMe) })
     if (userInfo) {
       notification.success({
         message: t('sys.login.loginSuccessTitle'),
         description: `${t('sys.login.loginSuccessDesc')}: ${userInfo.username}`,
-        // description: `${t('sys.login.loginSuccessDesc')}: ${userInfo.realName}`,
         duration: 3,
       })
 

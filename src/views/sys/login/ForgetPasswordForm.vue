@@ -5,6 +5,7 @@ import { Form, Input, Button } from 'ant-design-vue'
 import { CountdownInput } from '@/components/Countdown'
 import { useLoginState, useFormRules, LoginStateEnum } from './useLogin.ts'
 import { useI18n } from 'vue-i18n'
+import type { ForgetPasswordParams } from '@/api/model/user.model.ts'
 
 const FormItem = Form.Item
 const { t } = useI18n()
@@ -14,7 +15,7 @@ const { getFormRules } = useFormRules()
 const formRef = ref()
 const loading = ref(false)
 
-const formData = reactive({
+const formData = reactive<ForgetPasswordParams>({
   identifier: '',
   mobile: '',
   sms: '',
@@ -22,7 +23,7 @@ const formData = reactive({
 
 const getShow = computed(() => unref(getLoginState) === LoginStateEnum.RESET_PASSWORD)
 
-async function handleReset(values: any) {
+async function handleReset(values: ForgetPasswordParams) {
   console.log(values)
   const form = unref(formRef)
   if (!form) return

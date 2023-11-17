@@ -1,6 +1,2 @@
-import countButton from './src/CountButton.vue'
-import countdownInput from './src/CountdownInput.vue'
-import { withInstall } from '@/utils'
-
-export const CountdownInput = withInstall(countdownInput)
-export const CountButton = withInstall(countButton)
+export { default as CountButton } from './src/CountButton.vue'
+export { default as CountdownInput } from './src/CountdownInput.vue'

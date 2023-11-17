@@ -4,6 +4,7 @@ import LoginFormTitle from './LoginFormTitle.vue'
 import { Form, Input, Button } from 'ant-design-vue'
 import { useLoginState, useFormRules, LoginStateEnum } from './useLogin.ts'
 import { useI18n } from 'vue-i18n'
+import type { RegisterParams } from '@/api/model/user.model.ts'
 
 const FormItem = Form.Item
 const InputPassword = Input.Password
@@ -13,7 +14,7 @@ const { handleBackLogin, getLoginState } = useLoginState()
 const formRef = ref()
 const loading = ref(false)
 
-const formData = reactive({
+const formData = reactive<RegisterParams>({
   identifier: '',
   password: '',
   confirmPassword: '',
@@ -23,7 +24,7 @@ const { getFormRules } = useFormRules(formData)
 
 const getShow = computed(() => unref(getLoginState) === LoginStateEnum.REGISTER)
 
-async function handleRegister(values: any) {
+async function handleRegister(values: RegisterParams) {
   console.log(values)
 }
 </script>

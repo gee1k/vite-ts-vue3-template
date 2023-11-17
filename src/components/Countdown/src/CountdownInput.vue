@@ -1,33 +1,39 @@
 <script lang="ts" setup>
+import { Input } from 'ant-design-vue'
 import CountButton from './CountButton.vue'
 import { useRuleFormItem } from '@/hooks/useFormItem'
 
 export interface Props {
   value: string
-  size?: 'default' | 'large' | 'small'
+  size?: 'middle' | 'large' | 'small'
   count?: number
   sendCodeApi?: () => Promise<boolean>
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  size: 'default',
-  count: 60,
+  size: 'middle',
+  count: 10,
 })
 
 defineOptions({
   inheritAttrs: false,
 })
-const [state] = useRuleFormItem(props)
+const [state] = useRuleFormItem(props, 'value', 'change')
 </script>
 <template>
-  <a-input v-bind="$attrs" class="app-countdown-input" :size="size" :value="state">
+  <Input v-bind="$attrs" class="app-countdown-input" :size="props.size" :value="state">
     <template #addonAfter>
-      <CountButton :size="size" :count="count" :value="state" :beforeStartFunc="sendCodeApi" />
+      <CountButton
+        :size="props.size"
+        :count="props.count"
+        :value="state"
+        :beforeStartFunc="props.sendCodeApi"
+      />
     </template>
     <template #[item]="data" v-for="item in Object.keys($slots).filter((k) => k !== 'addonAfter')">
       <slot :name="item" v-bind="data || {}"></slot>
     </template>
-  </a-input>
+  </Input>
 </template>
 <style lang="less">
 .app-countdown-input {

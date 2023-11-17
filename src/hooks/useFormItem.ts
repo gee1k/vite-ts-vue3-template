@@ -14,14 +14,14 @@ import { isEqual } from 'lodash-es'
 
 export function useRuleFormItem<T extends Recordable, K extends keyof T, V = UnwrapRef<T[K]>>(
   props: T,
-  key?: K,
-  changeEvent?: string,
+  key: K,
+  changeEvent: string,
   emitData?: Ref<any[]>,
 ): [WritableComputedRef<V>, (val: V) => void, DeepReadonly<V>]
 
-export function useRuleFormItem<T extends Recordable>(
+export function useRuleFormItem<T extends Recordable, K extends keyof T>(
   props: T,
-  key: keyof T = 'value',
+  key: K,
   changeEvent = 'change',
   emitData?: Ref<any[]>,
 ) {
@@ -42,7 +42,7 @@ export function useRuleFormItem<T extends Recordable>(
     innerState.value = props[key]
   })
 
-  const state: any = computed({
+  const state = computed({
     get() {
       return innerState.value
     },

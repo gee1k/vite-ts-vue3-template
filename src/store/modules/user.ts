@@ -14,9 +14,9 @@ export const useUserStore = defineStore('app-user', () => {
   const token = ref<string | undefined>(getTokenCache())
   const roleList = computed(() => userInfo.value?.roles ?? [])
 
-  function setToken(_token: string) {
+  function setToken(_token: string, rememberMe?: boolean) {
     token.value = _token
-    setTokenCache(_token)
+    setTokenCache(_token, rememberMe)
   }
 
   function setUserInfo(_userInfo: UserInfo) {
@@ -29,11 +29,10 @@ export const useUserStore = defineStore('app-user', () => {
     removeTokenCache()
   }
 
-  async function login(params: LoginParams) {
+  async function login(params: LoginParams, options?: { rememberMe: boolean }) {
     const data = await loginApi(params)
     const { token } = data
-    setToken(token)
-
+    setToken(token, options?.rememberMe)
     return getUserInfo()
   }
 
@@ -62,6 +61,7 @@ export const useUserStore = defineStore('app-user', () => {
       content: t('sys.app.logoutMessage'),
       okText: t('common.okText'),
       cancelText: t('common.cancelText'),
+      centered: true,
       onOk: () => {
         logout()
       },
