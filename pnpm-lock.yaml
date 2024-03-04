@@ -43,7 +43,7 @@ dependencies:
     version: 9.10.1(vue@3.3.8)
   vue-router:
     specifier: '4'
-    version: 4.2.5(vue@3.3.8)
+    version: 4.3.0(vue@3.3.8)
 
 devDependencies:
   '@types/js-cookie':
@@ -2928,12 +2928,12 @@ packages:
       vue: 3.3.8(typescript@5.3.3)
     dev: false
 
-  /vue-router@4.2.5(vue@3.3.8):
-    resolution: {integrity: sha512-DIUpKcyg4+PTQKfFPX88UWhlagBEBEfJ5A8XDXRJLUnZOvcpMF8o/dnL90vpVkGaPbjvXazV/rC1qBKrZlFugw==}
+  /vue-router@4.3.0(vue@3.3.8):
+    resolution: {integrity: sha512-dqUcs8tUeG+ssgWhcPbjHvazML16Oga5w34uCUmsk7i0BcnskoLGwjpa15fqMr2Fa5JgVBrdL2MEgqz6XZ/6IQ==}
     peerDependencies:
       vue: ^3.2.0
     dependencies:
-      '@vue/devtools-api': 6.5.1
+      '@vue/devtools-api': 6.6.1
       vue: 3.3.8(typescript@5.3.3)
     dev: false
 
