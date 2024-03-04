@@ -11,6 +11,7 @@ import {
   Button,
   notification,
 } from 'ant-design-vue'
+import type { FormProps } from 'ant-design-vue'
 import LoginFormTitle from './LoginFormTitle.vue'
 import { useI18n } from 'vue-i18n'
 import { LoginParams } from '@/api/model/user.model.ts'
@@ -36,7 +37,7 @@ const formData = reactive<LoginParams>({
   password: '',
 })
 
-async function handleLogin(values: LoginParams) {
+const handleLogin: FormProps['onFinish'] = async (values: LoginParams) => {
   loading.value = true
   try {
     const token = await userStore.login(values, { rememberMe: unref(rememberMe) })

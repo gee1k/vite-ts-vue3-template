@@ -2,6 +2,7 @@
 import { reactive, ref, unref, computed } from 'vue'
 import LoginFormTitle from './LoginFormTitle.vue'
 import { Form, Input, Button } from 'ant-design-vue'
+import type { FormProps } from 'ant-design-vue'
 import { useLoginState, useFormRules, LoginStateEnum } from './useLogin.ts'
 import { useI18n } from 'vue-i18n'
 import type { RegisterParams } from '@/api/model/user.model.ts'
@@ -24,7 +25,7 @@ const { getFormRules } = useFormRules(formData)
 
 const getShow = computed(() => unref(getLoginState) === LoginStateEnum.REGISTER)
 
-async function handleRegister(values: RegisterParams) {
+const handleRegister: FormProps['onFinish'] = async (values: RegisterParams) => {
   console.log(values)
 }
 </script>

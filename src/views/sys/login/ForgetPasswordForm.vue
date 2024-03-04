@@ -2,6 +2,7 @@
 import { reactive, ref, computed, unref } from 'vue'
 import LoginFormTitle from './LoginFormTitle.vue'
 import { Form, Input, Button } from 'ant-design-vue'
+import type { FormProps } from 'ant-design-vue'
 import { CountdownInput } from '@/components/Countdown'
 import { useLoginState, useFormRules, LoginStateEnum } from './useLogin.ts'
 import { useI18n } from 'vue-i18n'
@@ -23,7 +24,7 @@ const formData = reactive<ForgetPasswordParams>({
 
 const getShow = computed(() => unref(getLoginState) === LoginStateEnum.RESET_PASSWORD)
 
-async function handleReset(values: ForgetPasswordParams) {
+const handleReset: FormProps['onFinish'] = async (values: ForgetPasswordParams) => {
   console.log(values)
   const form = unref(formRef)
   if (!form) return
