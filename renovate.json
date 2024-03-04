@@ -1,21 +1,31 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended"
+    "config:recommended",
+    "default:automergeMinor",
+    "default:prConcurrentLimit10",
+    "default:prHourlyLimitNone",
+    "default:rebaseStalePrs"
   ],
-  "labels": ["dependencies"],
   "packageRules": [
     {
-      "matchDepTypes": ["devDependencies"],
-      "labels": ["devDependencies"]
+      "groupName": "Bundler packages",
+      "matchPackagePatterns": ["vite", "unplugin"]
     },
     {
-      "matchPackagePatterns": ["eslint"],
-      "addLabels": ["linting"]
+      "groupName": "Typescript packages",
+      "matchPackagePatterns": ["@types", "ts-", "tsx", "typescript"]
     },
     {
-      "matchManagers": ["github-actions"],
-      "labels": ["github-actions"]
+      "groupName": "Lint packages",
+      "matchPackagePatterns": [
+        "eslint",
+        "prettier"
+      ]
+    },
+    {
+      "groupName": "CI/CD packages",
+      "matchPackagePatterns": ["github-actions", "dockerfile", "docker-compose"]
     }
   ]
 }
