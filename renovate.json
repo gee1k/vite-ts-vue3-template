@@ -6,24 +6,12 @@
     "default:automergeMinor",
     "default:prConcurrentLimit10",
     "default:prHourlyLimitNone",
-    "default:rebaseStalePrs"
+    "default:rebaseStalePrs",
+    "group:linters",
+    "group:vite",
+    "group:vueMonorepo"
   ],
   "packageRules": [
-    {
-      "groupName": "Bundler packages",
-      "matchPackagePatterns": ["vite", "unplugin"]
-    },
-    {
-      "groupName": "Typescript packages",
-      "matchPackagePatterns": ["@types", "ts-", "tsx", "typescript"]
-    },
-    {
-      "groupName": "Lint packages",
-      "matchPackagePatterns": [
-        "eslint",
-        "prettier"
-      ]
-    },
     {
       "groupName": "CI/CD packages",
       "matchPackagePatterns": ["github-actions", "dockerfile", "docker-compose"]
