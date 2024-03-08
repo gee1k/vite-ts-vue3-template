@@ -34,7 +34,7 @@ dependencies:
     version: 2.1.7(typescript@5.4.2)(vue@3.4.21)
   radash:
     specifier: ^12.0.0
-    version: 12.0.0
+    version: 12.1.0
   vue:
     specifier: ^3.3.8
     version: 3.4.21(typescript@5.4.2)
@@ -2396,8 +2396,8 @@ packages:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
     dev: true
 
-  /radash@12.0.0:
-    resolution: {integrity: sha512-CiemtIwEZH9XZAzl+/X6CQndV8lCcP8sMHCFs4ryI1011Y/PeWHYQwkOs4nyqFMNnqrbVL8WuvVlexqDceG29Q==}
+  /radash@12.1.0:
+    resolution: {integrity: sha512-b0Zcf09AhqKS83btmUeYBS8tFK7XL2e3RvLmZcm0sTdF1/UUlHSsjXdCcWNxe7yfmAlPve5ym0DmKGtTzP6kVQ==}
     engines: {node: '>=14.18.0'}
     dev: false
 
