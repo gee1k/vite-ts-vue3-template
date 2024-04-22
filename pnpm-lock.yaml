@@ -16,7 +16,7 @@ dependencies:
     version: 10.9.0(vue@3.4.23)
   ant-design-vue:
     specifier: 4.x
-    version: 4.1.2(vue@3.4.23)
+    version: 4.2.0(vue@3.4.23)
   axios:
     specifier: ^1.6.2
     version: 1.6.8
@@ -158,8 +158,8 @@ packages:
     dependencies:
       '@babel/types': 7.24.0
 
-  /@babel/runtime@7.24.0:
-    resolution: {integrity: sha512-Chk32uHMg6TnQdvw2e9IlqPpFX/6NLuK0Ys2PqLb7/gL5uFn9mXvK715FGLlOLQrcO4qIkNHkvPGktzzXexsFw==}
+  /@babel/runtime@7.24.4:
+    resolution: {integrity: sha512-dkxf7+hn8mFBwKjs9bvBlArzLVxVbS8usaPUDd5p2a9JCL9tB8OaOVN1isD4+Xyk4ns89/xeOmbQvgdK7IIVdA==}
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.14.1
@@ -698,7 +698,7 @@ packages:
   /@simonwep/pickr@1.8.2:
     resolution: {integrity: sha512-/l5w8BIkrpP6n1xsetx9MWPWlU6OblN5YgZZphxan0Tq4BByTCETL6lyIeY8lagalS2Nbt4F2W034KHLIiunKA==}
     dependencies:
-      core-js: 3.36.0
+      core-js: 3.37.0
       nanopop: 2.4.2
     dev: false
 
@@ -1078,15 +1078,15 @@ packages:
     engines: {node: '>=12'}
     dev: true
 
-  /ant-design-vue@4.1.2(vue@3.4.23):
-    resolution: {integrity: sha512-ynFkDJLlHgumeK6Hr1UZ7PvQNZ1uBcri/pmejBdS3kRqHeA5VRsxneYDwa8YxA+uYB5YfT2jpYsSHsiMiCjRGg==}
+  /ant-design-vue@4.2.0(vue@3.4.23):
+    resolution: {integrity: sha512-tw20aZn5Qv/xtJze+BMPNueS8pETBeuO1UWqbBQmg2/wp9WmtetsbEcANBg1QERI6E9ikSrQ2Yr9xlIyIJEYdw==}
     engines: {node: '>=12.22.0'}
     peerDependencies:
       vue: '>=3.2.0'
     dependencies:
       '@ant-design/colors': 6.0.0
       '@ant-design/icons-vue': 7.0.1(vue@3.4.23)
-      '@babel/runtime': 7.24.0
+      '@babel/runtime': 7.24.4
       '@ctrl/tinycolor': 3.6.1
       '@emotion/hash': 0.9.1
       '@emotion/unitless': 0.8.1
@@ -1309,8 +1309,8 @@ packages:
       is-what: 3.14.1
     dev: true
 
-  /core-js@3.36.0:
-    resolution: {integrity: sha512-mt7+TUBbTFg5+GngsAxeKBTl5/VS0guFeJacYge9OmHb+m058UwwIm41SE9T4Den7ClatV57B6TYTuJ0CX1MAw==}
+  /core-js@3.37.0:
+    resolution: {integrity: sha512-fu5vHevQ8ZG4og+LXug8ulUtVxjOcEYvifJr7L5Bfq9GOztVqsKd9/59hUk2ZSbCrS3BqUr3EpaYGIYzq7g3Ug==}
     requiresBuild: true
     dev: false
 
