@@ -16,7 +16,7 @@ dependencies:
     version: 10.9.0(vue@3.4.25)
   ant-design-vue:
     specifier: 4.x
-    version: 4.2.0(vue@3.4.25)
+    version: 4.2.1(vue@3.4.25)
   axios:
     specifier: ^1.6.2
     version: 1.6.8
@@ -1078,8 +1078,8 @@ packages:
     engines: {node: '>=12'}
     dev: true
 
-  /ant-design-vue@4.2.0(vue@3.4.25):
-    resolution: {integrity: sha512-tw20aZn5Qv/xtJze+BMPNueS8pETBeuO1UWqbBQmg2/wp9WmtetsbEcANBg1QERI6E9ikSrQ2Yr9xlIyIJEYdw==}
+  /ant-design-vue@4.2.1(vue@3.4.25):
+    resolution: {integrity: sha512-3u6fmfCEJ5AFTsYhogP8lJ/vcqiAJO16o+gGQkWYRGLl0NxmY4hje4cPyv+pcxpeJgcG0vNEmkb1vVHKcnxd+g==}
     engines: {node: '>=12.22.0'}
     peerDependencies:
       vue: '>=3.2.0'
@@ -1102,7 +1102,7 @@ packages:
       resize-observer-polyfill: 1.5.1
       scroll-into-view-if-needed: 2.2.31
       shallow-equal: 1.2.1
-      stylis: 4.3.1
+      stylis: 4.3.2
       throttle-debounce: 5.0.0
       vue: 3.4.25(typescript@5.4.5)
       vue-types: 3.0.2(vue@3.4.25)
@@ -2618,8 +2618,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /stylis@4.3.1:
-    resolution: {integrity: sha512-EQepAV+wMsIaGVGX1RECzgrcqRRU/0sYOHkeLsZ3fzHaHXZy4DaOOX0vOlGQdlsjkh3mFHAIlVimpwAs4dslyQ==}
+  /stylis@4.3.2:
+    resolution: {integrity: sha512-bhtUjWd/z6ltJiQwg0dUfxEJ+W+jdqQd8TbWLWyeIJHlnsqmGLRFFd8e5mA0AZi/zx90smXRlN66YMTcaSFifg==}
     dev: false
 
   /sucrase@3.35.0:
