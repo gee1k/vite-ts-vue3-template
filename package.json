@@ -5,7 +5,7 @@
   "description": "vite-ts-vue3-template",
   "author": "Svend <svend.jin@gmail.com>",
   "license": "MIT",
-  "packageManager": "pnpm@8.15.8",
+  "packageManager": "pnpm@9.3.0",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
