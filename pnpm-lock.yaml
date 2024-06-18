@@ -13,7 +13,7 @@ importers:
         version: 7.0.1(vue@3.4.29(typescript@5.4.5))
       '@heroicons/vue':
         specifier: ^2.0.18
-        version: 2.1.2(vue@3.4.29(typescript@5.4.5))
+        version: 2.1.4(vue@3.4.29(typescript@5.4.5))
       '@vueuse/core':
         specifier: ^10.6.1
         version: 10.11.0(vue@3.4.29(typescript@5.4.5))
@@ -324,8 +324,8 @@ packages:
     resolution: {integrity: sha512-Ys+3g2TaW7gADOJzPt83SJtCDhMjndcDMFVQ/Tj9iA1BfJzFKD9mAUXT3OenpuPHbI6P/myECxRJrofUsDx/5g==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
 
-  '@heroicons/vue@2.1.2':
-    resolution: {integrity: sha512-FIUWzFXwR8XxbUPug8GzatKsYH/M/yW0UeLZHzTjbj8/Po0UVSrqBQjdft/Ak/vMwmN97najDWWGuL6vCu906A==}
+  '@heroicons/vue@2.1.4':
+    resolution: {integrity: sha512-wykVSZ/fqEG49lIeHgFGT9TCvBw9THuRTtA/sPp7FVk3iBob/HcmitMcLDwtXOW82TXb38HeLRl1/pcElPeSdg==}
     peerDependencies:
       vue: '>= 3'
 
@@ -1941,7 +1941,7 @@ snapshots:
 
   '@eslint/js@8.57.0': {}
 
-  '@heroicons/vue@2.1.2(vue@3.4.29(typescript@5.4.5))':
+  '@heroicons/vue@2.1.4(vue@3.4.29(typescript@5.4.5))':
     dependencies:
       vue: 3.4.29(typescript@5.4.5)
 
