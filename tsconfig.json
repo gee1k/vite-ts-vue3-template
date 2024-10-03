@@ -31,6 +31,6 @@
       ]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "types/**/*.ts", "types/**/*.d.ts"],
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "types/**/*.ts", "types/**/*.d.ts", "auto-imports.d.ts", "components.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

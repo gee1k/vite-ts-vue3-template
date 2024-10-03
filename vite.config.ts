@@ -11,7 +11,7 @@ export default defineConfig({
     vue(),
     AutoImport({
       imports: ['vue', 'vue-router', 'pinia'],
-      dts: './src/auto-imports.d.ts',
+      dts: './auto-imports.d.ts',
       vueTemplate: true,
       eslintrc: {
         enabled: true,
@@ -19,7 +19,7 @@ export default defineConfig({
     }),
     Components({
       dirs: ["src/components"],
-      dts: './src/components.d.ts',
+      dts: './components.d.ts',
       resolvers: [
         AntDesignVueResolver({
           importStyle: false,
