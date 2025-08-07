@@ -59,13 +59,13 @@ importers:
         version: 4.17.12
       '@types/node':
         specifier: ^22.9.0
-        version: 22.15.34
+        version: 22.15.35
       '@types/nprogress':
         specifier: ^0.2.3
         version: 0.2.3
       '@vitejs/plugin-vue':
         specifier: ^5.2.0
-        version: 5.2.4(vite@5.4.19(@types/node@22.15.34)(less@4.3.0))(vue@3.5.17(typescript@5.8.3))
+        version: 5.2.4(vite@5.4.19(@types/node@22.15.35)(less@4.3.0))(vue@3.5.17(typescript@5.8.3))
       autoprefixer:
         specifier: ^10.4.20
         version: 10.4.21(postcss@8.5.6)
@@ -110,7 +110,7 @@ importers:
         version: 0.28.0(@babel/parser@7.27.7)(rollup@4.44.0)(vue@3.5.17(typescript@5.8.3))
       vite:
         specifier: ^5.4.11
-        version: 5.4.19(@types/node@22.15.34)(less@4.3.0)
+        version: 5.4.19(@types/node@22.15.35)(less@4.3.0)
       vue-tsc:
         specifier: ^2.1.10
         version: 2.2.10(typescript@5.8.3)
@@ -561,8 +561,8 @@ packages:
   '@types/lodash@4.14.202':
     resolution: {integrity: sha512-OvlIYQK9tNneDlS0VN54LLd5uiPCBOp7gS5Z0f1mjoJYBrtStzgmJBxONW3U6OZqdtNzZPmn9BS/7WI7BFFcFQ==}
 
-  '@types/node@22.15.34':
-    resolution: {integrity: sha512-8Y6E5WUupYy1Dd0II32BsWAx5MWdcnRd8L84Oys3veg1YrYtNtzgO4CFhiBg6MDSjk7Ay36HYOnU7/tuOzIzcw==}
+  '@types/node@22.15.35':
+    resolution: {integrity: sha512-stV91mHxlWpDksiUiivmFfQzjy2JLlb2NUTxKipiANEbxBZsdbDU9fSrT7SHY4uoCXAxYfJZVasn3x2/hqpd3g==}
 
   '@types/nprogress@0.2.3':
     resolution: {integrity: sha512-k7kRA033QNtC+gLc4VPlfnue58CM1iQLgn1IMAU8VPHGOj7oIHPp9UlhedEnD/Gl8evoCjwkZjlBORtZ3JByUA==}
@@ -2224,7 +2224,7 @@ snapshots:
 
   '@types/lodash@4.14.202': {}
 
-  '@types/node@22.15.34':
+  '@types/node@22.15.35':
     dependencies:
       undici-types: 6.21.0
 
@@ -2324,9 +2324,9 @@ snapshots:
       '@typescript-eslint/types': 8.35.0
       eslint-visitor-keys: 4.2.1
 
-  '@vitejs/plugin-vue@5.2.4(vite@5.4.19(@types/node@22.15.34)(less@4.3.0))(vue@3.5.17(typescript@5.8.3))':
+  '@vitejs/plugin-vue@5.2.4(vite@5.4.19(@types/node@22.15.35)(less@4.3.0))(vue@3.5.17(typescript@5.8.3))':
     dependencies:
-      vite: 5.4.19(@types/node@22.15.34)(less@4.3.0)
+      vite: 5.4.19(@types/node@22.15.35)(less@4.3.0)
       vue: 3.5.17(typescript@5.8.3)
 
   '@volar/language-core@2.4.15':
@@ -3553,13 +3553,13 @@ snapshots:
 
   util-deprecate@1.0.2: {}
 
-  vite@5.4.19(@types/node@22.15.34)(less@4.3.0):
+  vite@5.4.19(@types/node@22.15.35)(less@4.3.0):
     dependencies:
       esbuild: 0.21.5
       postcss: 8.5.6
       rollup: 4.44.0
     optionalDependencies:
-      '@types/node': 22.15.34
+      '@types/node': 22.15.35
       fsevents: 2.3.3
       less: 4.3.0
 
