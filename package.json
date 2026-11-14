@@ -24,7 +24,7 @@
     "pinia": "^2.2.6",
     "radash": "^12.1.0",
     "vue": "^3.5.12",
-    "vue-i18n": "10",
+    "vue-i18n": "11",
     "vue-router": "4"
   },
   "devDependencies": {
